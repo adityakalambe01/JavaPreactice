@@ -13,4 +13,8 @@ public class Used {
         System.out.print("Enter "+numberOfInput+" number: ");
     }
 
+    public static void inputNumberMessage(){
+        System.out.print("Enter a number: ");
+    }
+
 }
