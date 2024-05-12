@@ -16,10 +16,11 @@ public class P04_SumOfNumberInRange {
         System.out.println("The sum of number from "+start+" to "+end+" is "+sum);
     }
 
+
     static void usingFormula(int start, int end){
         Used.formula();
         System.out.println("The sum of number from "+start+" to "+end+" is "+
-                ( start*(start-1)/2 + end*(end+1)/2)
+                (end*(end+1)/2 - start*(start-1)/2)
         );
     }
     public static void main(String[] args) {
@@ -38,14 +39,12 @@ public class P04_SumOfNumberInRange {
             e.printStackTrace();
         }
 
-        //swap if start>end
-        if(start>end){
-            start = start ^ end;
-            end = start ^ end;
-            start = start ^ end;
-        }
-        P04_SumOfNumberInRange.usingIteration(start, end);
+        P04_SumOfNumberInRange.usingIteration(Math.min(start,end),
+                                              Math.max(start,end)
+        );
 
-        P04_SumOfNumberInRange.usingFormula(start, end);
+        P04_SumOfNumberInRange.usingFormula(Math.min(start,end),
+                                            Math.max(start,end)
+        );
     }
 }

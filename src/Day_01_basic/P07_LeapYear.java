@@ -4,16 +4,15 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class P05_GreatestNumberAmongThree {
+public class P07_LeapYear {
     public static void main(String[] args) {
-        int firstNumber = 0, secondNumber = 0, thirdNumber = 0;
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
-        //take input
-        try {
+        //take input from user
+        /*try{
 
         }catch (IOException e){
             e.printStackTrace();
-        }
+        }*/
     }
 }
