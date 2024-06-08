@@ -18,11 +18,12 @@ public class School {
     //verify user
     private RuntimeException verifyUser(User user){
 
+        //age
         if (user.getUserAge()<6){
             throw new InvalidAgeException("age should be greater than oe equals 6");
         }
 
-
+        //email
         if (!this.checkEmail(user.getUserEmailId())){
             if (user.getUserPassword().split("@").length!=2){
                 throw new InvalidPasswordException("email should be valid");
@@ -30,6 +31,7 @@ public class School {
             throw new InvalidEmailException("Email should be valid and end with @gmail.com, @outlook.com, or @live.com.");
         }
 
+        //password
         if (user.getUserPassword().contains(" ")) throw new InvalidPasswordException("password should not contain space");
         if(user.getUserPassword().length()>=8 && user.getUserPassword().length()<=15){
 
@@ -55,9 +57,7 @@ public class School {
 
             if (!hasUppercase || !hasLowercase || !hasDigit || !hasSpecial) {
                 throw new InvalidPasswordException("password should be contains at least 1 "+message+" character.");
-
             }
-
         }else {
             throw new InvalidPasswordException("Password should be 8 to 15 character long");
         }
@@ -76,8 +76,5 @@ public class School {
         }else {
             throw r;
         }
-
     }
-
-
 }
