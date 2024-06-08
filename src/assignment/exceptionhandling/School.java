@@ -24,46 +24,37 @@ public class School {
 
 
         if (!this.checkEmail(user.getUserEmailId())){
-            throw new InvalidEmailException();
+            if (user.getUserPassword().split("@").length==1){
+                throw new InvalidPasswordException("email should be valid");
+            }
+            throw new InvalidEmailException("Email should be valid and end with @gmail.com, @outlook.com, or @live.com.");
         }
 
+        if (user.getUserPassword().contains(" ")) throw new InvalidPasswordException("password should not contain space");
         if(user.getUserPassword().length()>=8 && user.getUserPassword().length()<=15){
-            if (user.getUserPassword().contains(" ")) throw new InvalidPasswordException("password should not contain space");
 
-            boolean isUppercase = false, isLowercase = false, isDigit = false, isSpecial = false;
             String message = "";
 
-            for (char character : user.getUserPassword().toCharArray()) {
-                if (isLowercase && isUppercase && isDigit && isSpecial) {
-                    break;
-                }else if(Character.isUpperCase(character)){
-                    isUppercase = true;
-                }else if(Character.isLowerCase(character)){
-                    isLowercase = true;
-                }else if(Character.isDigit(character)){
-                    isDigit = true;
-                } else if (!Character.isWhitespace(character)) {
-                    isSpecial = true;
-                }
-            }
+            boolean hasUppercase = user.getUserPassword().chars().anyMatch(Character::isUpperCase);
+            boolean hasLowercase = user.getUserPassword().chars().anyMatch(Character::isLowerCase);
+            boolean hasDigit = user.getUserPassword().chars().anyMatch(Character::isDigit);
+            boolean hasSpecial = user.getUserPassword().chars().anyMatch(c -> !Character.isLetterOrDigit(c));
 
-
-
-            if(!isUppercase){
+            if(!hasUppercase){
                 message = "uppercase";
             }
-            if(!isLowercase){
+            if(!hasLowercase){
                 message += !message.isEmpty() ? ", lowercase":"lowercase";
             }
-            if(!isDigit){
+            if(!hasDigit){
                 message += !message.isEmpty() ? ", digit":"digit";
             }
-            if(!isSpecial){
+            if(!hasSpecial){
                 message += !message.isEmpty() ? ", special":"special";
             }
 
-            if (!isUppercase || !isLowercase || !isDigit || !isSpecial) {
-                throw new InvalidPasswordException("password should be contains at least 1 "+message+" letters");
+            if (!hasUppercase || !hasLowercase || !hasDigit || !hasSpecial) {
+                throw new InvalidPasswordException("password should be contains at least 1 "+message+" character.");
 
             }
 
