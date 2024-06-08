@@ -15,37 +15,55 @@ public class School {
 
     //verify user
     private RuntimeException verifyUser(User user){
+
         if (user.getUserAge()<6){
             throw new InvalidAgeException("age should be greater than oe equals 6");
         }
-        if(!this.checkPassword(user.getUserPassword())){
-            throw new InvalidPasswordException();
-        }
+
+
         if (!this.checkEmail(user.getUserEmailId())){
             throw new InvalidEmailException();
         }
-        return null;
-    }
 
-    //Password checking logic
-    private boolean checkPassword(String password){
-        int uppercaseCount = 0;
-        int lowercaseCount = 0;
-        int digitCount = 0;
-        int specialCount = 0;
+        if(user.getUserPassword().length()>=8 && user.getUserPassword().length()<=15){
+            boolean isUppercase = false, isLowercase = false, isDigit = false, isSpecial = false;
+            String message = "password should be contains at least 1 ";
 
-        for (char character : password.toCharArray()) {
-            if(Character.isUpperCase(character)){
-                uppercaseCount++;
-            }else if(Character.isLowerCase(character)){
-                lowercaseCount++;
-            }else if(Character.isDigit(character)){
-                digitCount++;
-            } else if (!Character.isWhitespace(character)) {
-                specialCount++;
+            for (char character : user.getUserPassword().toCharArray()) {
+                if (isLowercase && isUppercase && isDigit && isSpecial) {
+                    break;
+                }else if(Character.isUpperCase(character)){
+                    isUppercase = true;
+                }else if(Character.isLowerCase(character)){
+                    isLowercase = true;
+                }else if(Character.isDigit(character)){
+                    isDigit = true;
+                } else if (!Character.isWhitespace(character)) {
+                    isSpecial = true;
+                }
             }
+
+            if(!isUppercase){
+                message = message.concat("uppercase ");
+            }
+            if(!isLowercase){
+                message = message.concat("lowercase ");
+            }
+            if(!isDigit){
+                message = message.concat("digit ");
+            }
+            if(!isSpecial){
+                message = message.concat("special ");
+            }
+
+            if (!isUppercase || !isLowercase || !isDigit || !isSpecial) {
+                throw new InvalidPasswordException(message);
+            }
+
+        }else {
+            throw new InvalidPasswordException("Password should be 8 to 15 character long");
         }
-        return (uppercaseCount>=1 && lowercaseCount>=1 && digitCount>=1 && specialCount>=1) && (password.length()>=8 && password.length()<=15);
+        return null;
     }
 
     //Email checking logic
