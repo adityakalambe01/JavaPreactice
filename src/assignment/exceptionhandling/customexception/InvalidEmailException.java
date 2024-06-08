@@ -8,6 +8,6 @@ public class InvalidEmailException extends RuntimeException{
     }
 
     public String toString(){
-        return "InvalidEmailException" + message;
+        return "InvalidEmailException: " + message;
     }
 }
