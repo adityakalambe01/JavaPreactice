@@ -4,6 +4,8 @@ import assignment.exceptionhandling.customexception.InvalidAgeException;
 import assignment.exceptionhandling.customexception.InvalidEmailException;
 import assignment.exceptionhandling.customexception.InvalidPasswordException;
 
+import java.util.ArrayList;
+
 
 public class School {
     //home page
@@ -27,7 +29,7 @@ public class School {
 
         if(user.getUserPassword().length()>=8 && user.getUserPassword().length()<=15){
             boolean isUppercase = false, isLowercase = false, isDigit = false, isSpecial = false;
-            String message = "password should be contains at least 1 ";
+            String message = "";
 
             for (char character : user.getUserPassword().toCharArray()) {
                 if (isLowercase && isUppercase && isDigit && isSpecial) {
@@ -43,21 +45,24 @@ public class School {
                 }
             }
 
+
+
             if(!isUppercase){
-                message = message.concat("uppercase ");
+                message = "uppercase";
             }
             if(!isLowercase){
-                message = message.concat("lowercase ");
+                message += !message.isEmpty() ? ", lowercase":"lowercase";
             }
             if(!isDigit){
-                message = message.concat("digit ");
+                message += !message.isEmpty() ? ", digit":"digit";
             }
             if(!isSpecial){
-                message = message.concat("special ");
+                message += !message.isEmpty() ? ", special":"special";
             }
 
             if (!isUppercase || !isLowercase || !isDigit || !isSpecial) {
-                throw new InvalidPasswordException(message);
+                throw new InvalidPasswordException("password should be contains at least 1 "+message+" letters");
+
             }
 
         }else {
