@@ -24,7 +24,7 @@ public class School {
 
 
         if (!this.checkEmail(user.getUserEmailId())){
-            if (user.getUserPassword().split("@").length==1){
+            if (user.getUserPassword().split("@").length!=2){
                 throw new InvalidPasswordException("email should be valid");
             }
             throw new InvalidEmailException("Email should be valid and end with @gmail.com, @outlook.com, or @live.com.");
@@ -33,7 +33,7 @@ public class School {
         if (user.getUserPassword().contains(" ")) throw new InvalidPasswordException("password should not contain space");
         if(user.getUserPassword().length()>=8 && user.getUserPassword().length()<=15){
 
-            String message = "";
+            StringBuilder message = new StringBuilder();
 
             boolean hasUppercase = user.getUserPassword().chars().anyMatch(Character::isUpperCase);
             boolean hasLowercase = user.getUserPassword().chars().anyMatch(Character::isLowerCase);
@@ -41,16 +41,16 @@ public class School {
             boolean hasSpecial = user.getUserPassword().chars().anyMatch(c -> !Character.isLetterOrDigit(c));
 
             if(!hasUppercase){
-                message = "uppercase";
+                message.append("uppercase");
             }
             if(!hasLowercase){
-                message += !message.isEmpty() ? ", lowercase":"lowercase";
+                message.append(!message.toString().isEmpty() ? ", lowercase":"lowercase");
             }
             if(!hasDigit){
-                message += !message.isEmpty() ? ", digit":"digit";
+                message.append(!message.toString().isEmpty() ? ", digit":"digit");
             }
             if(!hasSpecial){
-                message += !message.isEmpty() ? ", special":"special";
+                message.append(!message.toString().isEmpty() ? ", special":"special");
             }
 
             if (!hasUppercase || !hasLowercase || !hasDigit || !hasSpecial) {
