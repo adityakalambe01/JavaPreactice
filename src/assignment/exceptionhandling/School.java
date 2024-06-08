@@ -28,6 +28,8 @@ public class School {
         }
 
         if(user.getUserPassword().length()>=8 && user.getUserPassword().length()<=15){
+            if (user.getUserPassword().contains(" ")) throw new InvalidPasswordException("password should not contain space");
+
             boolean isUppercase = false, isLowercase = false, isDigit = false, isSpecial = false;
             String message = "";
 
