@@ -1,4 +1,4 @@
-package array.w3resources.solution;
+package w3resources.array.solution;
 
 public class Q4AverageOfArray {
     static double calculateSum(double[] myArray){
