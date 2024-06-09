@@ -28,10 +28,11 @@ public class School {
 
         //email
         if (user.getUserEmailId().contains(" ")) throw new InvalidEmailException("email address should not contain spaces");
-        else if (user.getUserEmailId().split("@").length!=2) throw new InvalidEmailException("email should be valid");
         else if (!this.checkEmail(user.getUserEmailId())){
             throw new InvalidEmailException("Email should be valid and end with @gmail.com, @outlook.com, or @live.com.");
         }
+        else if (user.getUserEmailId().split("@").length!=2) throw new InvalidEmailException();
+
 
         //password
         if (user.getUserPassword().contains(" ")) throw new InvalidPasswordException("password should not contain space");
