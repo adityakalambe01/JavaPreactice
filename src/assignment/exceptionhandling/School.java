@@ -80,11 +80,11 @@ public class School {
             throw r;
         }*/
 
-        RuntimeException r = verifyUser(user);
-        if(r == null){
+        RuntimeException runtimeException = verifyUser(user);
+        if(runtimeException == null){
             homePage(new Student(user));
         }else {
-            throw r;
+            throw runtimeException;
         }
     }
 }
