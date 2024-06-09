@@ -1,4 +1,4 @@
-package vmt.exceptionhandling.assignment1.customexception;
+package vmt.assignment1.customexception;
 
 public class InvalidAgeException extends RuntimeException{
     private String msg = "Invalid Age!!!";

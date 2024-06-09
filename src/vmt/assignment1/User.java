@@ -1,4 +1,4 @@
-package vmt.exceptionhandling.assignment1;
+package vmt.assignment1;
 
 public class User {
     private String userFullName;

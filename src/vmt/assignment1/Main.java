@@ -1,4 +1,4 @@
-package vmt.exceptionhandling.assignment1;
+package vmt.assignment1;
 
 
 import java.util.ArrayList;
