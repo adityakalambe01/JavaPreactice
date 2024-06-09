@@ -4,9 +4,6 @@ import assignment.exceptionhandling.customexception.InvalidAgeException;
 import assignment.exceptionhandling.customexception.InvalidEmailException;
 import assignment.exceptionhandling.customexception.InvalidPasswordException;
 
-import java.util.ArrayList;
-
-
 public class School {
     //home page
     private void homePage(User user){
@@ -24,10 +21,9 @@ public class School {
         }
 
         //email
-        if (!this.checkEmail(user.getUserEmailId())){
-            if (user.getUserPassword().split("@").length!=2){
-                throw new InvalidPasswordException("email should be valid");
-            }
+        if (user.getUserEmailId().contains(" ")) throw new InvalidEmailException("email address should not contain spaces");
+        else if (user.getUserEmailId().split("@").length!=2) throw new InvalidEmailException("email should be valid");
+        else if (!this.checkEmail(user.getUserEmailId())){
             throw new InvalidEmailException("Email should be valid and end with @gmail.com, @outlook.com, or @live.com.");
         }
 

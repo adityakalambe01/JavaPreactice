@@ -8,7 +8,7 @@ public class Main {
         User user = new User();
         user.setUserAge(15);
         user.setUserEmailId("adityakalambe20@gmail.com");
-        user.setUserPassword("Aditya@t");
+        user.setUserPassword("Aditya@123");
         user.setUserFullName("Aditya Vasant Kalambe");
 
         School school = new School();
