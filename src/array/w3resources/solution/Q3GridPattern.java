@@ -1,4 +1,4 @@
-package array.w3resources;
+package array.w3resources.solution;
 
 public class Q3GridPattern {
     public static void main(String[] args) {

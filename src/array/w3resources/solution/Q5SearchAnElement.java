@@ -1,4 +1,4 @@
-package array.w3resources;
+package array.w3resources.solution;
 
 public class Q5SearchAnElement {
     static void searchElement(int[] myArray, int element){

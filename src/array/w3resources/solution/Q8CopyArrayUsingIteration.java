@@ -1,4 +1,4 @@
-package array.w3resources;
+package array.w3resources.solution;
 
 import java.util.Arrays;
 

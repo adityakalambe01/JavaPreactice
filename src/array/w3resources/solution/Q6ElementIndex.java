@@ -1,4 +1,4 @@
-package array.w3resources;
+package array.w3resources.solution;
 
 public class Q6ElementIndex {
     static int getElementIndex(int[] myArray, int element){
