@@ -6,11 +6,11 @@ import assignment.exceptionhandling.customexception.InvalidPasswordException;
 
 public class School {
     //home page
-    /*private void homePage(User user){
+    private void homePage(User user){
         System.out.println("Hello "+user.getUserFullName());
         System.out.println("Your Data: ");
         System.out.println(user);
-    }*/
+    }
 
     private void homePage(Student student){
         System.out.println("Hello "+student.getUser().getUserFullName());
