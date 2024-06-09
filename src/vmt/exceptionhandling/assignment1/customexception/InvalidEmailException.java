@@ -1,4 +1,4 @@
-package assignment.exceptionhandling.customexception;
+package vmt.exceptionhandling.assignment1.customexception;
 
 public class InvalidEmailException extends RuntimeException{
     private String message = "Invalid email";

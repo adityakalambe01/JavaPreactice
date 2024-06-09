@@ -1,4 +1,4 @@
-package assignment.exceptionhandling;
+package vmt.exceptionhandling.assignment1;
 
 public class Student {
     private static long studentId;

@@ -1,8 +1,8 @@
-package assignment.exceptionhandling;
+package vmt.exceptionhandling.assignment1;
 
-import assignment.exceptionhandling.customexception.InvalidAgeException;
-import assignment.exceptionhandling.customexception.InvalidEmailException;
-import assignment.exceptionhandling.customexception.InvalidPasswordException;
+import vmt.exceptionhandling.assignment1.customexception.InvalidAgeException;
+import vmt.exceptionhandling.assignment1.customexception.InvalidEmailException;
+import vmt.exceptionhandling.assignment1.customexception.InvalidPasswordException;
 
 public class School {
     //home page
