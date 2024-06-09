@@ -6,10 +6,16 @@ import assignment.exceptionhandling.customexception.InvalidPasswordException;
 
 public class School {
     //home page
-    private void homePage(User user){
+    /*private void homePage(User user){
         System.out.println("Hello "+user.getUserFullName());
         System.out.println("Your Data: ");
         System.out.println(user);
+    }*/
+
+    private void homePage(Student student){
+        System.out.println("Hello "+student.getUser().getUserFullName());
+        System.out.println("Your Data: ");
+        System.out.println(student);
     }
 
     //verify user
@@ -66,9 +72,16 @@ public class School {
     }
 
     public void login(User user){
-        RuntimeException r = verifyUser(user);
+        /*RuntimeException r = verifyUser(user);
         if(r == null){
             homePage(user);
+        }else {
+            throw r;
+        }*/
+
+        RuntimeException r = verifyUser(user);
+        if(r == null){
+            homePage(new Student(user));
         }else {
             throw r;
         }
