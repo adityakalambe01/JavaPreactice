@@ -31,7 +31,7 @@ public class Student {
     @Override
     public String toString() {
         return "Student{" + "studentId=" + studentId +
-                "\nuser=" + user +
-                '}';
+                ", user=" + user +
+                '}'+"\n";
     }
 }
